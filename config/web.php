@@ -6,6 +6,7 @@ $db = YII_ENV_DEV ? require __DIR__ . '/db_dev.php' : require __DIR__ . '/db.php
 
 $config = [
     'id' => 'ishop',
+    'layout' => 'main_shop',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
