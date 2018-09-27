@@ -20,6 +20,10 @@ class ShopAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     
+    public $js = [
+        'js/main.js'
+    ];
+    
     public $depends = [
         'app\assets\FasheAsset',
     ];

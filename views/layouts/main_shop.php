@@ -35,12 +35,15 @@ ShopAsset::register($this);
         <div class="wrap_menu">
             <nav class="menu">
                 <ul class="main_menu">
-                    <li><?= Html::a('Contact','#') ?></li>
-                    <li class="sale-noti"><?= Html::a('About','#') ?></li>
+                    <li><?= Html::a('Contact','/contact') ?></li>
+                    <li><?= Html::a('About','/about') ?></li>
                     <li>
-                        <?= Html::a('Login','#') ?>
                         <?php
-                        (Yii::$app->user->isGuest ? Html::a('Login','#') : Html::a('Logout','#'))
+                        echo Yii::$app->user->isGuest ? Html::a('Login','/signin') : (
+                            Html::beginForm(['/logout'], 'post').
+                            Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')').
+                            Html::endForm()
+                        )
                         ?>
                     </li>
                 </ul>
@@ -220,12 +223,15 @@ ShopAsset::register($this);
                 <div class="wrap_menu">
                     <nav class="menu">
                         <ul class="main_menu">
-                            <li><?= Html::a('Contact', '#') ?></li>
-                            <li class="sale-noti"><?= Html::a('About', '#') ?></li>
+                            <li><?= Html::a('Contact', '/contact') ?></li>
+                            <li><?= Html::a('About', '/about') ?></li>
                             <li>
-                                <?= Html::a('Login', '#') ?>
                                 <?php
-                                (Yii::$app->user->isGuest ? Html::a('Login', '#') : Html::a('Logout', '#'))
+                                echo Yii::$app->user->isGuest ? Html::a('Login','/signin') : (
+                                    Html::beginForm(['/logout'], 'post').
+                                    Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')').
+                                    Html::endForm()
+                                ) 
                                 ?>
                             </li>
                         </ul>
