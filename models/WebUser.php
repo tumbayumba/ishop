@@ -1,15 +1,21 @@
 <?php
 
 namespace app\models;
+use yii\db\ActiveRecord;
 
-class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
+class WebUser extends ActiveRecord implements \yii\web\IdentityInterface
 {
+    public static function tableName()
+    {
+        return 'is_users';
+    }
+    
     /**
      * {@inheritdoc}
      */
     public static function findIdentity($id)
     {
-        return $this->findOne($id);
+        return static::findOne($id);
     }
 
     /**
@@ -26,9 +32,9 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      * @param string $username
      * @return static|null
      */
-    public static function findByUsername($username)
+    public static function findByLogin($login)
     {
-        
+        return static::findOne(['login' => $login]);
     }
 
     /**

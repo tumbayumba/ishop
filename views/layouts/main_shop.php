@@ -41,7 +41,7 @@ ShopAsset::register($this);
                         <?php
                         echo Yii::$app->user->isGuest ? Html::a('Login','/signin') : (
                             Html::beginForm(['/logout'], 'post').
-                            Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')').
+                            Html::submitButton('Logout (' . Yii::$app->user->identity->login . ')').
                             Html::endForm()
                         )
                         ?>
@@ -229,7 +229,7 @@ ShopAsset::register($this);
                                 <?php
                                 echo Yii::$app->user->isGuest ? Html::a('Login','/signin') : (
                                     Html::beginForm(['/logout'], 'post').
-                                    Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')').
+                                    Html::submitButton('Logout (' . Yii::$app->user->identity->login . ')').
                                     Html::endForm()
                                 ) 
                                 ?>

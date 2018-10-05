@@ -22,7 +22,7 @@ $this->title = 'Login';
                     ],
                 ]) ?>
                     <h4 class="m-text26 p-b-36 p-t-15">Login</h4>
-                    <?= $form->field($model, 'username')->textInput() ?>
+                    <?= $form->field($model, 'login')->textInput() ?>
                     <?= $form->field($model, 'password')->passwordInput() ?>
                     <?= $form->field($model, 'rememberMe')->checkbox() ?>
                     <div class="w-size25">

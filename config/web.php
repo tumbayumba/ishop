@@ -2,7 +2,7 @@
 
 $params = require __DIR__ . '/params.php';
 
-$db = YII_ENV_DEV ? require __DIR__ . '/db_dev.php' : require __DIR__ . '/db.php';
+$db = require YII_ENV_DEV ? __DIR__ . '/db_dev.php' : __DIR__ . '/db.php';
 
 $config = [
     'id' => 'ishop',
@@ -24,9 +24,6 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\WebUser',
             'enableAutoLogin' => true,
-        ],
-        'authManager' => [
-            'class' => 'yii\rbac\DbManager',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
