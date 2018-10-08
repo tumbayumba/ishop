@@ -2,6 +2,7 @@
 
 namespace app\models;
 use yii\db\ActiveRecord;
+use Yii;
 
 class WebUser extends ActiveRecord implements \yii\web\IdentityInterface
 {
@@ -67,8 +68,8 @@ class WebUser extends ActiveRecord implements \yii\web\IdentityInterface
      * @param string $password password to validate
      * @return bool if password provided is valid for current user
      */
-    public function validatePassword($password)
+    public function validatePassword($password, $hash)
     {
-        return $this->password === $password;
+        return Yii::$app->getSecurity()->validatePassword($password, $hash);
     }
 }

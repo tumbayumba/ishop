@@ -35,13 +35,13 @@ ShopAsset::register($this);
         <div class="wrap_menu">
             <nav class="menu">
                 <ul class="main_menu">
-                    <li><?= Html::a('Contact','/contact') ?></li>
-                    <li><?= Html::a('About','/about') ?></li>
+                    <li><?= Html::a(Yii::t('site','Contact'),'/contact') ?></li>
+                    <li><?= Html::a(Yii::t('site','About'),'/about') ?></li>
                     <li>
                         <?php
-                        echo Yii::$app->user->isGuest ? Html::a('Login','/signin') : (
+                        echo Yii::$app->user->isGuest ? Html::a(Yii::t('site','Login'),'/signin') : (
                             Html::beginForm(['/logout'], 'post').
-                            Html::submitButton('Logout (' . Yii::$app->user->identity->login . ')').
+                            Html::submitButton(Yii::t('site','Logout').' (' . Yii::$app->user->identity->login . ')').
                             Html::endForm()
                         )
                         ?>
@@ -223,13 +223,13 @@ ShopAsset::register($this);
                 <div class="wrap_menu">
                     <nav class="menu">
                         <ul class="main_menu">
-                            <li><?= Html::a('Contact', '/contact') ?></li>
-                            <li><?= Html::a('About', '/about') ?></li>
+                            <li><?= Html::a(Yii::t('site','Contact'), '/contact') ?></li>
+                            <li><?= Html::a(Yii::t('site','About'), '/about') ?></li>
                             <li>
                                 <?php
-                                echo Yii::$app->user->isGuest ? Html::a('Login','/signin') : (
+                                echo Yii::$app->user->isGuest ? Html::a(Yii::t('site','Login'),'/signin') : (
                                     Html::beginForm(['/logout'], 'post').
-                                    Html::submitButton('Logout (' . Yii::$app->user->identity->login . ')').
+                                    Html::submitButton(Yii::t('site','Logout').' (' . Yii::$app->user->identity->login . ')').
                                     Html::endForm()
                                 ) 
                                 ?>

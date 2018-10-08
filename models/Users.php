@@ -32,7 +32,7 @@ class Users extends \yii\db\ActiveRecord
         return [
             [['login', 'password', 'created', 'updated'], 'required'],
             [['created', 'updated', 'registration_date'], 'integer'],
-            [['login', 'password'], 'string', 'max' => 255],
+            [['login', 'password', 'hash'], 'string', 'max' => 255],
             [['login'], 'unique'],
         ];
     }

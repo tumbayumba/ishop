@@ -27,11 +27,19 @@ class LoginForm extends Model
     {
         return [
             // username and password are both required
-            [['login', 'password'], 'required'],
+            //[['login', 'password'], 'required'],
+            [['login'], 'required', 'message'=>Yii::t('site','required_field "{field}"', ['field'=>Yii::t('site','login')])],
+            [['password'], 'required', 'message'=>Yii::t('site','required_field "{field}"', ['field'=>Yii::t('site','password')])],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
+        ];
+    }
+    
+    public function attributeLabels() {
+        return [
+            'rememberMe' => Yii::t('site', 'rememberMe'),
         ];
     }
 
@@ -47,8 +55,8 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
 
-            if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect login or password.');
+            if (!$user || !$user->validatePassword($this->password, $user->password)) {
+                $this->addError($attribute, Yii::t('site','Incorrect login or password.'));
             }
         }
     }

@@ -6,9 +6,16 @@ $db = require YII_ENV_DEV ? __DIR__ . '/db_dev.php' : __DIR__ . '/db.php';
 
 $config = [
     'id' => 'ishop',
+    'language' => 'uk-UA',
     'layout' => 'main_shop',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        'log',
+        [
+            'class' => 'app\components\LanguageSelector',
+            'supportedLanguages' => ['en_US', 'uk_UA', 'ru_RU'],
+        ],
+    ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -54,6 +61,20 @@ $config = [
                 'logout' => 'site/logout',
                 'about' => 'site/about',
                 'contact' => 'site/contact',
+            ],
+        ],
+        
+        'i18n' => [
+            'translations' => [
+                'site*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'site' => 'site.php',
+                        //'site/error' => 'error.php',
+                    ],
+                ],
             ],
         ],
         
